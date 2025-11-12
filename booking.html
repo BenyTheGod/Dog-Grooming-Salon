@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Foglaljon időpontot kutya kozmetikai kezelésre online. Válassza ki a kívánt dátumot és időpontot. Gyors és egyszerű online foglalás.">
+    <meta name="keywords" content="kutyakozmetika időpontfoglalás, online időpontfoglalás, kutya kozmetika foglalás, kutyakozmetika Győr foglalás">
+    <meta name="author" content="Bűbáj-Kutyakozmetika">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.bubaj-kutyakozmetika.hu/booking.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bubaj-kutyakozmetika.hu/booking.html">
+    <meta property="og:title" content="Időpontfoglalás | Bűbáj Kutyakozmetika Győr">
+    <meta property="og:description" content="Foglaljon időpontot kutya kozmetikai kezelésre online. Válassza ki a kívánt dátumot és időpontot.">
+    <meta property="og:image" content="https://www.bubaj-kutyakozmetika.hu/images/kutya1.png">
+    <meta property="og:locale" content="hu_HU">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.bubaj-kutyakozmetika.hu/booking.html">
+    <meta name="twitter:title" content="Időpontfoglalás | Bűbáj Kutyakozmetika Győr">
+    <meta name="twitter:description" content="Foglaljon időpontot kutya kozmetikai kezelésre online. Válassza ki a kívánt dátumot és időpontot.">
+    <meta name="twitter:image" content="https://www.bubaj-kutyakozmetika.hu/images/kutya1.png">
+    
+    <title>Időpontfoglalás | Bűbáj Kutyakozmetika Győr</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Bűbáj-Kutyakozmetika</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Főoldal</a></li>
+                <li><a href="offers.html">Szolgáltatásaink</a></li>
+                <li><a href="about.html">Rólunk</a></li>
+                <li><a href="booking.html" class="active">Időpontfoglalás</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Navigáció váltása">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Időpontfoglalás</h1>
+            <p>Foglaljon időpontot kutyája kozmetikai kezelésére</p>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section">
+        <div class="container">
+            <form class="booking-form" id="bookingForm">
+                <!-- Service Selection -->
+                <div class="form-group">
+                    <label for="service">Szolgáltatás kiválasztása <span class="required-asterisk">*</span></label>
+                    <select id="service" name="service" required>
+                        <option value="">Válasszon szolgáltatást...</option>
+                        <option value="full-grooming">Teljes Kozmetikai Csomag</option>
+                        <option value="bath-brush">Fürdés és Fésülés</option>
+                        <option value="nail-trimming">Körömvágás</option>
+                        <option value="ear-cleaning">Fül Tisztítás</option>
+                        <option value="teeth-cleaning">Fog Tisztítás</option>
+                        <option value="puppy-groom">Kölyök Első Kozmetika</option>
+                    </select>
+                </div>
+
+                <!-- Calendar Section -->
+                <div class="form-group calendar-group">
+                    <label>Dátum és Időpont kiválasztása <span class="required-asterisk">*</span></label>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button type="button" class="calendar-nav" id="prevMonth" aria-label="Előző hónap">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <h3 class="calendar-month-year" id="calendarMonthYear"></h3>
+                            <button type="button" class="calendar-nav" id="nextMonth" aria-label="Következő hónap">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div class="weekday">H</div>
+                            <div class="weekday">K</div>
+                            <div class="weekday">Sz</div>
+                            <div class="weekday">Cs</div>
+                            <div class="weekday">P</div>
+                            <div class="weekday weekend">Sz</div>
+                            <div class="weekday weekend">V</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays"></div>
+                    </div>
+                    
+                    <!-- Time Slots -->
+                    <div class="time-slots-container" id="timeSlotsContainer" style="display: none;">
+                        <h4 class="time-slots-title">Időpont kiválasztása</h4>
+                        <div class="time-slots-grid" id="timeSlotsGrid"></div>
+                    </div>
+                    
+                    <!-- Hidden inputs for form submission -->
+                    <input type="hidden" id="selectedDate" name="date" required>
+                    <input type="hidden" id="selectedTime" name="time" required>
+                </div>
+
+                <!-- Dog Information -->
+                <div class="form-group">
+                    <label for="dogName">Kutya neve <span class="required-asterisk">*</span></label>
+                    <input type="text" id="dogName" name="dogName" required placeholder="Adja meg kutyája nevét">
+                </div>
+
+                <div class="form-group">
+                    <label for="dogBreed">Fajta</label>
+                    <input type="text" id="dogBreed" name="dogBreed" placeholder="Adja meg a fajtát (opcionális)">
+                </div>
+
+                <div class="form-group">
+                    <label for="dogSize">Kutya mérete <span class="required-asterisk">*</span></label>
+                    <select id="dogSize" name="dogSize" required>
+                        <option value="">Válasszon méretet...</option>
+                        <option value="small">Kicsi (10 kg-ig)</option>
+                        <option value="medium">Közepes (10-25 kg)</option>
+                        <option value="large">Nagy (25-40 kg)</option>
+                        <option value="xlarge">Extra nagy (40+ kg)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialNotes">Különleges megjegyzések vagy utasítások</label>
+                    <textarea id="specialNotes" name="specialNotes" rows="4" placeholder="Különleges követelmények, allergiák vagy megjegyzések kutyájáról..."></textarea>
+                </div>
+
+                <!-- Owner Information -->
+                <h3 class="form-section-title">Tulajdonos adatai</h3>
+
+                <div class="form-group">
+                    <label for="ownerName">Az Ön neve <span class="required-asterisk">*</span></label>
+                    <input type="text" id="ownerName" name="ownerName" required placeholder="Adja meg teljes nevét">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email cím <span class="required-asterisk">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="peldaemail@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefonszám <span class="required-asterisk">*</span></label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+36 XX XXX XXXX">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-submit">
+                    <button type="submit" class="btn-glow">Időpontfoglalás</button>
+                </div>
+            </form>
+
+            <!-- Booking Success Message (hidden by default) -->
+            <div class="booking-success" id="bookingSuccess" style="display: none;">
+                <h2>Foglalás megerősítve!</h2>
+                <p>Köszönjük, hogy nálunk foglalt időpontot. Megkaptuk foglalási kérését és hamarosan megerősítjük.</p>
+                <a href="index.html" class="btn-glow">Vissza a főoldalra</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kapcsolat</h4>
+                    <p>9028 Győr, Jereváni út 39</p>
+                    <p>Telefon: <a href="tel:+3606704147199">+36 70 414 7199</a></p>
+                    <p><a href="https://www.google.com/maps/place/B%C5%B1b%C3%A1j-Kutyakozmetika/@47.6673556,17.6564609,17z/data=!3m1!4b1!4m6!3m5!1s0x476bc100315955fb:0x29417f68a19eba2a!8m2!3d47.6673556!4d17.6564609!16s%2Fg%2F11yll06zwq?entry=ttu" target="_blank" rel="noopener">Megtekintés a térképen</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nyitvatartás</h4>
+                    <p><strong>Hétfő - Péntek</strong><br>9:00 - 18:00</p>
+                    <p><strong>Szombat - Vasárnap</strong><br>Zárva</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kövessen minket</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61582009624494" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Hírlevél</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Az Ön email címe" required>
+                        <button type="submit">Feliratkozás az újdonságokra</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bűbáj-Kutyakozmetika Győr. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ReservationAction",
+      "target": {
+        "@type": "Reservation",
+        "reservationFor": {
+          "@type": "Service",
+          "name": "Kutya Kozmetikai Szolgáltatások",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Bűbáj-Kutyakozmetika",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Jereváni út 39",
+              "addressLocality": "Győr",
+              "postalCode": "9028",
+              "addressCountry": "HU"
+            }
+          }
+        }
+      },
+      "object": {
+        "@type": "Reservation",
+        "reservationStatus": "https://schema.org/ReservationPending"
+      }
+    }
+    </script>
+</body>
+</html>
