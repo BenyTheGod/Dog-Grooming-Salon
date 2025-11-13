@@ -639,18 +639,24 @@ body {
 }
 
 .required-asterisk {
-    color: #ff0000;
+    color: #9d4edd;
     font-weight: 700;
-    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 12px rgba(255, 0, 0, 0.6);
+    text-shadow: 0 0 8px rgba(157, 78, 221, 0.8), 0 0 12px rgba(157, 78, 221, 0.6);
     animation: glow-pulse 2s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+.required-asterisk.hidden {
+    opacity: 0;
+    display: none;
 }
 
 @keyframes glow-pulse {
     0%, 100% {
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 12px rgba(255, 0, 0, 0.6);
+        text-shadow: 0 0 8px rgba(157, 78, 221, 0.8), 0 0 12px rgba(157, 78, 221, 0.6);
     }
     50% {
-        text-shadow: 0 0 12px rgba(255, 0, 0, 1), 0 0 18px rgba(255, 0, 0, 0.8), 0 0 24px rgba(255, 0, 0, 0.6);
+        text-shadow: 0 0 12px rgba(157, 78, 221, 1), 0 0 18px rgba(157, 78, 221, 0.8), 0 0 24px rgba(157, 78, 221, 0.6);
     }
 }
 
@@ -693,6 +699,16 @@ body {
 .form-submit {
     text-align: center;
     margin-top: 2.5rem;
+}
+
+.required-note {
+    text-align: center;
+    margin-top: 1rem;
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.85;
 }
 
 .booking-success {
